@@ -1,0 +1,8 @@
+__pycache__/
+*.py[cod]
+.venv/
+.coverage
+data/
+*.sqlite*
+.env
+test-results/

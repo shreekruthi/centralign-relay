@@ -1,0 +1,9 @@
+[project]
+name = "centralign-relay"
+version = "2.0.0"
+description = "A durable, evidence-driven sandbox company operator"
+requires-python = ">=3.11"
+dependencies = []
+
+[tool.ruff]
+line-length = 100
