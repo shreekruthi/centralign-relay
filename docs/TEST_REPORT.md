@@ -32,7 +32,11 @@ python -m unittest discover -s tests -v
 | Local web boundaries | Request token, Origin and Host checks, static-file allowlist, invalid payload/decision and security headers |
 | Optional model | Fake-transport structured interpretation contract and malformed response rejection; no live model inference |
 
-The original local reference-connector tests remain, with additional real supplier HTTP integration tests. Python source compilation and JavaScript syntax checks passed. GitHub Actions is configured for Python 3.11/3.14 on Windows, Ubuntu and macOS; **remote CI and other local interpreter/OS combinations were not run during this delivery**.
+The original local reference-connector tests remain, with additional real supplier HTTP integration tests. Python source compilation and JavaScript syntax checks passed.
+
+## Published-source validation
+
+The public repository was cloned independently and all 62 tests passed again. GitHub Actions then passed all six combinations of Python 3.11/3.14 on Windows, Ubuntu and macOS. Every job also ran the supplier-fallback, uncertain-purchase and internal-transfer CLI demos successfully. [Verified CI run](https://github.com/shreekruthi/centralign-relay/actions/runs/40355104127), source commit `67bbecd287d254d56656d1dc813d435bcd984eac`. Subsequent documentation-only updates do not change the tested application code.
 
 ## Browser demonstration
 
