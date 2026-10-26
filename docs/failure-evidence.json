@@ -1,0 +1,690 @@
+{
+  "id": "511e4c1f-93de-4ab8-9696-4ab39afe415c",
+  "goal": "Buy 2 monitors within $500",
+  "intent": {
+    "budget_cents": 50000,
+    "quantity": 2,
+    "sku": "MONITOR"
+  },
+  "status": "needs_attention",
+  "memory": {
+    "allow_transfer": false,
+    "epoch": 0,
+    "excluded": [],
+    "facts": [
+      "authorized",
+      "inventory",
+      "ordered",
+      "policy",
+      "quote",
+      "receipt",
+      "received",
+      "suppliers"
+    ],
+    "missing": [],
+    "outputs": {
+      "authorize": {
+        "fingerprint": "afdf74885d3528fa0552c2569d9f8bba2104f16114fb28189aea20791eda0a6a",
+        "mode": "company_policy"
+      },
+      "choose_quote": {
+        "expires_at": 1793024795.1767883,
+        "policy_version": 1,
+        "quantity": 2,
+        "selection_basis": "Lowest feasible price; verified prior successes break price ties.",
+        "sku": "MONITOR",
+        "total_cents": 36000,
+        "unit_cents": 18000,
+        "vendor": "atlas",
+        "vendor_name": "Atlas Supply",
+        "vendor_version": 1
+      },
+      "place_order": {
+        "external_order_id": "SUP-511e4c1f-93de-4ab8-9696-4ab39afe415c",
+        "fingerprint": "afdf74885d3528fa0552c2569d9f8bba2104f16114fb28189aea20791eda0a6a",
+        "id": "PO-511E4C1F93DE4AB896964AB39AFE415C",
+        "quantity": 2,
+        "quote": "{\"expires_at\":1793024795.1767883,\"policy_version\":1,\"quantity\":2,\"selection_basis\":\"Lowest feasible price; verified prior successes break price ties.\",\"sku\":\"MONITOR\",\"total_cents\":36000,\"unit_cents\":18000,\"vendor\":\"atlas\",\"vendor_name\":\"Atlas Supply\",\"vendor_version\":1}",
+        "sku": "MONITOR",
+        "status": "placed",
+        "task_id": "511e4c1f-93de-4ab8-9696-4ab39afe415c",
+        "total_cents": 36000,
+        "vendor": "atlas"
+      },
+      "read_inventory": {
+        "quantity": 5,
+        "sku": "MONITOR",
+        "surplus_quantity": 0,
+        "surplus_version": 1
+      },
+      "read_policy": {
+        "approval_cents": 50000,
+        "id": 1,
+        "max_order_cents": 200000,
+        "prior_outcomes": [],
+        "version": 1
+      },
+      "receive_order": {
+        "order_id": "PO-511E4C1F93DE4AB896964AB39AFE415C",
+        "quantity": 2
+      },
+      "search_suppliers": [
+        {
+          "id": "atlas",
+          "name": "Atlas Supply",
+          "prior_verified_successes": 0,
+          "sku": "MONITOR",
+          "stock": 100,
+          "unit_cents": 18000,
+          "version": 1
+        },
+        {
+          "id": "beacon",
+          "name": "Beacon Office",
+          "prior_verified_successes": 0,
+          "sku": "MONITOR",
+          "stock": 100,
+          "unit_cents": 19000,
+          "version": 1
+        }
+      ],
+      "write_receipt": {
+        "body": "{\"currency\":\"USD\",\"order_id\":\"PO-511E4C1F93DE4AB896964AB39AFE415C\",\"purchase_fingerprint\":\"afdf74885d3528fa0552c2569d9f8bba2104f16114fb28189aea20791eda0a6a\",\"quantity\":1,\"receipt_id\":\"RCPT-511E4C1F\",\"sandbox\":true,\"sku\":\"MONITOR\",\"task_id\":\"511e4c1f-93de-4ab8-9696-4ab39afe415c\",\"total_cents\":36000,\"vendor\":\"atlas\"}",
+        "id": "RCPT-511E4C1F",
+        "order_id": "PO-511E4C1F93DE4AB896964AB39AFE415C",
+        "quantity": 1,
+        "sha256": "0adce6c9742786bea178b63ea112b80f67dd9fe756c7ac564012a20f974c7693",
+        "total_cents": 36000
+      }
+    },
+    "requested_quantity": 2,
+    "retries": {}
+  },
+  "scenario": "verification_mismatch",
+  "created": 1793024494.2771013,
+  "updated": 1793024496.6591704,
+  "steps": 9,
+  "retry_at": 0.0,
+  "lease_until": 0.0,
+  "lease_token": null,
+  "events": [
+    {
+      "seq": 54,
+      "task_id": "511e4c1f-93de-4ab8-9696-4ab39afe415c",
+      "at": 1793024494.2860365,
+      "kind": "understand",
+      "message": "Goal translated to an explicit outcome contract.",
+      "detail": {
+        "intent": {
+          "budget_cents": 50000,
+          "quantity": 2,
+          "sku": "MONITOR"
+        },
+        "interpreter": "offline grammar",
+        "scenario": "verification_mismatch"
+      }
+    },
+    {
+      "seq": 55,
+      "task_id": "511e4c1f-93de-4ab8-9696-4ab39afe415c",
+      "at": 1793024494.4047217,
+      "kind": "plan",
+      "message": "Establish the stock baseline for this request.",
+      "detail": {
+        "epoch": 0,
+        "facts": [],
+        "horizon_target": "inventory",
+        "next_tool": "read_inventory",
+        "remaining_plan": [
+          "read_inventory"
+        ]
+      }
+    },
+    {
+      "seq": 56,
+      "task_id": "511e4c1f-93de-4ab8-9696-4ab39afe415c",
+      "at": 1793024494.4248612,
+      "kind": "execute",
+      "message": "Read SKU baseline",
+      "detail": {
+        "capability": "inventory.read",
+        "result": {
+          "data": {
+            "quantity": 5,
+            "sku": "MONITOR",
+            "surplus_quantity": 0,
+            "surplus_version": 1
+          },
+          "fact": "inventory"
+        },
+        "tool": "read_inventory"
+      }
+    },
+    {
+      "seq": 57,
+      "task_id": "511e4c1f-93de-4ab8-9696-4ab39afe415c",
+      "at": 1793024494.4550455,
+      "kind": "observe",
+      "message": "Observed inventory; replan from the new state.",
+      "detail": {
+        "quantity": 5,
+        "sku": "MONITOR",
+        "surplus_quantity": 0,
+        "surplus_version": 1
+      }
+    },
+    {
+      "seq": 58,
+      "task_id": "511e4c1f-93de-4ab8-9696-4ab39afe415c",
+      "at": 1793024494.6507893,
+      "kind": "plan",
+      "message": "Load the company's spending and supplier rules.",
+      "detail": {
+        "epoch": 0,
+        "facts": [
+          "inventory"
+        ],
+        "horizon_target": "policy",
+        "next_tool": "read_policy",
+        "remaining_plan": [
+          "read_policy"
+        ]
+      }
+    },
+    {
+      "seq": 59,
+      "task_id": "511e4c1f-93de-4ab8-9696-4ab39afe415c",
+      "at": 1793024494.6661422,
+      "kind": "execute",
+      "message": "Read versioned company spending policy",
+      "detail": {
+        "capability": "company.read",
+        "result": {
+          "data": {
+            "approval_cents": 50000,
+            "id": 1,
+            "max_order_cents": 200000,
+            "prior_outcomes": [],
+            "version": 1
+          },
+          "fact": "policy"
+        },
+        "tool": "read_policy"
+      }
+    },
+    {
+      "seq": 60,
+      "task_id": "511e4c1f-93de-4ab8-9696-4ab39afe415c",
+      "at": 1793024494.695987,
+      "kind": "observe",
+      "message": "Observed policy; replan from the new state.",
+      "detail": {
+        "approval_cents": 50000,
+        "id": 1,
+        "max_order_cents": 200000,
+        "prior_outcomes": [],
+        "version": 1
+      }
+    },
+    {
+      "seq": 61,
+      "task_id": "511e4c1f-93de-4ab8-9696-4ab39afe415c",
+      "at": 1793024494.8872805,
+      "kind": "plan",
+      "message": "Discover approved suppliers with sufficient stock.",
+      "detail": {
+        "epoch": 0,
+        "facts": [
+          "inventory",
+          "policy"
+        ],
+        "horizon_target": "verified",
+        "next_tool": "search_suppliers",
+        "remaining_plan": [
+          "search_suppliers",
+          "choose_quote",
+          "authorize",
+          "place_order",
+          "receive_order",
+          "write_receipt",
+          "verify_outcome"
+        ]
+      }
+    },
+    {
+      "seq": 62,
+      "task_id": "511e4c1f-93de-4ab8-9696-4ab39afe415c",
+      "at": 1793024494.9355881,
+      "kind": "execute",
+      "message": "Discover approved, stocked suppliers",
+      "detail": {
+        "capability": "suppliers.read",
+        "result": {
+          "data": [
+            {
+              "id": "atlas",
+              "name": "Atlas Supply",
+              "prior_verified_successes": 0,
+              "sku": "MONITOR",
+              "stock": 100,
+              "unit_cents": 18000,
+              "version": 1
+            },
+            {
+              "id": "beacon",
+              "name": "Beacon Office",
+              "prior_verified_successes": 0,
+              "sku": "MONITOR",
+              "stock": 100,
+              "unit_cents": 19000,
+              "version": 1
+            }
+          ],
+          "fact": "suppliers"
+        },
+        "tool": "search_suppliers"
+      }
+    },
+    {
+      "seq": 63,
+      "task_id": "511e4c1f-93de-4ab8-9696-4ab39afe415c",
+      "at": 1793024494.9595973,
+      "kind": "observe",
+      "message": "Observed suppliers; replan from the new state.",
+      "detail": [
+        {
+          "id": "atlas",
+          "name": "Atlas Supply",
+          "prior_verified_successes": 0,
+          "sku": "MONITOR",
+          "stock": 100,
+          "unit_cents": 18000,
+          "version": 1
+        },
+        {
+          "id": "beacon",
+          "name": "Beacon Office",
+          "prior_verified_successes": 0,
+          "sku": "MONITOR",
+          "stock": 100,
+          "unit_cents": 19000,
+          "version": 1
+        }
+      ]
+    },
+    {
+      "seq": 64,
+      "task_id": "511e4c1f-93de-4ab8-9696-4ab39afe415c",
+      "at": 1793024495.159248,
+      "kind": "plan",
+      "message": "Choose the least expensive feasible current quote.",
+      "detail": {
+        "epoch": 0,
+        "facts": [
+          "inventory",
+          "policy",
+          "suppliers"
+        ],
+        "horizon_target": "verified",
+        "next_tool": "choose_quote",
+        "remaining_plan": [
+          "choose_quote",
+          "authorize",
+          "place_order",
+          "receive_order",
+          "write_receipt",
+          "verify_outcome"
+        ]
+      }
+    },
+    {
+      "seq": 65,
+      "task_id": "511e4c1f-93de-4ab8-9696-4ab39afe415c",
+      "at": 1793024495.1769297,
+      "kind": "execute",
+      "message": "Rank budget-feasible quotes",
+      "detail": {
+        "capability": "quotes.read",
+        "result": {
+          "data": {
+            "expires_at": 1793024795.1767883,
+            "policy_version": 1,
+            "quantity": 2,
+            "selection_basis": "Lowest feasible price; verified prior successes break price ties.",
+            "sku": "MONITOR",
+            "total_cents": 36000,
+            "unit_cents": 18000,
+            "vendor": "atlas",
+            "vendor_name": "Atlas Supply",
+            "vendor_version": 1
+          },
+          "fact": "quote"
+        },
+        "tool": "choose_quote"
+      }
+    },
+    {
+      "seq": 66,
+      "task_id": "511e4c1f-93de-4ab8-9696-4ab39afe415c",
+      "at": 1793024495.2013977,
+      "kind": "observe",
+      "message": "Observed quote; replan from the new state.",
+      "detail": {
+        "expires_at": 1793024795.1767883,
+        "policy_version": 1,
+        "quantity": 2,
+        "selection_basis": "Lowest feasible price; verified prior successes break price ties.",
+        "sku": "MONITOR",
+        "total_cents": 36000,
+        "unit_cents": 18000,
+        "vendor": "atlas",
+        "vendor_name": "Atlas Supply",
+        "vendor_version": 1
+      }
+    },
+    {
+      "seq": 67,
+      "task_id": "511e4c1f-93de-4ab8-9696-4ab39afe415c",
+      "at": 1793024495.3993185,
+      "kind": "plan",
+      "message": "Check spending authority; pause for a bound human decision if needed.",
+      "detail": {
+        "epoch": 0,
+        "facts": [
+          "inventory",
+          "policy",
+          "quote",
+          "suppliers"
+        ],
+        "horizon_target": "verified",
+        "next_tool": "authorize",
+        "remaining_plan": [
+          "authorize",
+          "place_order",
+          "receive_order",
+          "write_receipt",
+          "verify_outcome"
+        ]
+      }
+    },
+    {
+      "seq": 68,
+      "task_id": "511e4c1f-93de-4ab8-9696-4ab39afe415c",
+      "at": 1793024495.4340405,
+      "kind": "execute",
+      "message": "Request approval for exact purchase fingerprint",
+      "detail": {
+        "capability": "approval.request",
+        "result": {
+          "data": {
+            "fingerprint": "afdf74885d3528fa0552c2569d9f8bba2104f16114fb28189aea20791eda0a6a",
+            "mode": "company_policy"
+          },
+          "fact": "authorized"
+        },
+        "tool": "authorize"
+      }
+    },
+    {
+      "seq": 69,
+      "task_id": "511e4c1f-93de-4ab8-9696-4ab39afe415c",
+      "at": 1793024495.4638033,
+      "kind": "observe",
+      "message": "Observed authorized; replan from the new state.",
+      "detail": {
+        "fingerprint": "afdf74885d3528fa0552c2569d9f8bba2104f16114fb28189aea20791eda0a6a",
+        "mode": "company_policy"
+      }
+    },
+    {
+      "seq": 70,
+      "task_id": "511e4c1f-93de-4ab8-9696-4ab39afe415c",
+      "at": 1793024495.6764731,
+      "kind": "plan",
+      "message": "Commit one purchase with an idempotency key.",
+      "detail": {
+        "epoch": 0,
+        "facts": [
+          "authorized",
+          "inventory",
+          "policy",
+          "quote",
+          "suppliers"
+        ],
+        "horizon_target": "verified",
+        "next_tool": "place_order",
+        "remaining_plan": [
+          "place_order",
+          "receive_order",
+          "write_receipt",
+          "verify_outcome"
+        ]
+      }
+    },
+    {
+      "seq": 71,
+      "task_id": "511e4c1f-93de-4ab8-9696-4ab39afe415c",
+      "at": 1793024495.7465138,
+      "kind": "purchase_intent",
+      "message": "Persisted exact purchase intent before crossing the HTTP boundary.",
+      "detail": {
+        "fingerprint": "afdf74885d3528fa0552c2569d9f8bba2104f16114fb28189aea20791eda0a6a",
+        "idempotency_key": "511e4c1f-93de-4ab8-9696-4ab39afe415c"
+      }
+    },
+    {
+      "seq": 72,
+      "task_id": "511e4c1f-93de-4ab8-9696-4ab39afe415c",
+      "at": 1793024495.8022604,
+      "kind": "connector",
+      "message": "Supplier HTTP API confirmed the committed order.",
+      "detail": {
+        "external_order_id": "SUP-511e4c1f-93de-4ab8-9696-4ab39afe415c",
+        "idempotency_key": "511e4c1f-93de-4ab8-9696-4ab39afe415c",
+        "tool": "place_order"
+      }
+    },
+    {
+      "seq": 73,
+      "task_id": "511e4c1f-93de-4ab8-9696-4ab39afe415c",
+      "at": 1793024495.837379,
+      "kind": "observe",
+      "message": "Observed ordered; replan from the new state.",
+      "detail": {
+        "external_order_id": "SUP-511e4c1f-93de-4ab8-9696-4ab39afe415c",
+        "fingerprint": "afdf74885d3528fa0552c2569d9f8bba2104f16114fb28189aea20791eda0a6a",
+        "id": "PO-511E4C1F93DE4AB896964AB39AFE415C",
+        "quantity": 2,
+        "quote": "{\"expires_at\":1793024795.1767883,\"policy_version\":1,\"quantity\":2,\"selection_basis\":\"Lowest feasible price; verified prior successes break price ties.\",\"sku\":\"MONITOR\",\"total_cents\":36000,\"unit_cents\":18000,\"vendor\":\"atlas\",\"vendor_name\":\"Atlas Supply\",\"vendor_version\":1}",
+        "sku": "MONITOR",
+        "status": "placed",
+        "task_id": "511e4c1f-93de-4ab8-9696-4ab39afe415c",
+        "total_cents": 36000,
+        "vendor": "atlas"
+      }
+    },
+    {
+      "seq": 74,
+      "task_id": "511e4c1f-93de-4ab8-9696-4ab39afe415c",
+      "at": 1793024496.0429285,
+      "kind": "plan",
+      "message": "Record sandbox fulfillment and inventory movement.",
+      "detail": {
+        "epoch": 0,
+        "facts": [
+          "authorized",
+          "inventory",
+          "ordered",
+          "policy",
+          "quote",
+          "suppliers"
+        ],
+        "horizon_target": "verified",
+        "next_tool": "receive_order",
+        "remaining_plan": [
+          "receive_order",
+          "write_receipt",
+          "verify_outcome"
+        ]
+      }
+    },
+    {
+      "seq": 75,
+      "task_id": "511e4c1f-93de-4ab8-9696-4ab39afe415c",
+      "at": 1793024496.0820632,
+      "kind": "execute",
+      "message": "Fulfill a sandbox order exactly once",
+      "detail": {
+        "capability": "inventory.write",
+        "result": {
+          "data": {
+            "order_id": "PO-511E4C1F93DE4AB896964AB39AFE415C",
+            "quantity": 2
+          },
+          "fact": "received"
+        },
+        "tool": "receive_order"
+      }
+    },
+    {
+      "seq": 76,
+      "task_id": "511e4c1f-93de-4ab8-9696-4ab39afe415c",
+      "at": 1793024496.1094348,
+      "kind": "observe",
+      "message": "Observed received; replan from the new state.",
+      "detail": {
+        "order_id": "PO-511E4C1F93DE4AB896964AB39AFE415C",
+        "quantity": 2
+      }
+    },
+    {
+      "seq": 77,
+      "task_id": "511e4c1f-93de-4ab8-9696-4ab39afe415c",
+      "at": 1793024496.3167803,
+      "kind": "plan",
+      "message": "Create a persisted receipt and a content digest.",
+      "detail": {
+        "epoch": 0,
+        "facts": [
+          "authorized",
+          "inventory",
+          "ordered",
+          "policy",
+          "quote",
+          "received",
+          "suppliers"
+        ],
+        "horizon_target": "verified",
+        "next_tool": "write_receipt",
+        "remaining_plan": [
+          "write_receipt",
+          "verify_outcome"
+        ]
+      }
+    },
+    {
+      "seq": 78,
+      "task_id": "511e4c1f-93de-4ab8-9696-4ab39afe415c",
+      "at": 1793024496.3406947,
+      "kind": "execute",
+      "message": "Persist a downloadable receipt with SHA-256",
+      "detail": {
+        "capability": "receipts.write",
+        "result": {
+          "data": {
+            "body": "{\"currency\":\"USD\",\"order_id\":\"PO-511E4C1F93DE4AB896964AB39AFE415C\",\"purchase_fingerprint\":\"afdf74885d3528fa0552c2569d9f8bba2104f16114fb28189aea20791eda0a6a\",\"quantity\":1,\"receipt_id\":\"RCPT-511E4C1F\",\"sandbox\":true,\"sku\":\"MONITOR\",\"task_id\":\"511e4c1f-93de-4ab8-9696-4ab39afe415c\",\"total_cents\":36000,\"vendor\":\"atlas\"}",
+            "id": "RCPT-511E4C1F",
+            "order_id": "PO-511E4C1F93DE4AB896964AB39AFE415C",
+            "quantity": 1,
+            "sha256": "0adce6c9742786bea178b63ea112b80f67dd9fe756c7ac564012a20f974c7693",
+            "total_cents": 36000
+          },
+          "fact": "receipt"
+        },
+        "tool": "write_receipt"
+      }
+    },
+    {
+      "seq": 79,
+      "task_id": "511e4c1f-93de-4ab8-9696-4ab39afe415c",
+      "at": 1793024496.3711004,
+      "kind": "observe",
+      "message": "Observed receipt; replan from the new state.",
+      "detail": {
+        "body": "{\"currency\":\"USD\",\"order_id\":\"PO-511E4C1F93DE4AB896964AB39AFE415C\",\"purchase_fingerprint\":\"afdf74885d3528fa0552c2569d9f8bba2104f16114fb28189aea20791eda0a6a\",\"quantity\":1,\"receipt_id\":\"RCPT-511E4C1F\",\"sandbox\":true,\"sku\":\"MONITOR\",\"task_id\":\"511e4c1f-93de-4ab8-9696-4ab39afe415c\",\"total_cents\":36000,\"vendor\":\"atlas\"}",
+        "id": "RCPT-511E4C1F",
+        "order_id": "PO-511E4C1F93DE4AB896964AB39AFE415C",
+        "quantity": 1,
+        "sha256": "0adce6c9742786bea178b63ea112b80f67dd9fe756c7ac564012a20f974c7693",
+        "total_cents": 36000
+      }
+    },
+    {
+      "seq": 80,
+      "task_id": "511e4c1f-93de-4ab8-9696-4ab39afe415c",
+      "at": 1793024496.5723617,
+      "kind": "plan",
+      "message": "Independently compare goal, order, inventory movement and receipt.",
+      "detail": {
+        "epoch": 0,
+        "facts": [
+          "authorized",
+          "inventory",
+          "ordered",
+          "policy",
+          "quote",
+          "receipt",
+          "received",
+          "suppliers"
+        ],
+        "horizon_target": "verified",
+        "next_tool": "verify_outcome",
+        "remaining_plan": [
+          "verify_outcome"
+        ]
+      }
+    },
+    {
+      "seq": 81,
+      "task_id": "511e4c1f-93de-4ab8-9696-4ab39afe415c",
+      "at": 1793024496.6340702,
+      "kind": "verification_failed",
+      "message": "Read-back verification found a mismatch.",
+      "detail": {
+        "checks": {
+          "authorization_recorded": true,
+          "independent_supplier_matches": true,
+          "inventory_movement_matches": true,
+          "order_matches_goal": true,
+          "order_received": true,
+          "purchase_matches_quote": true,
+          "receipt_digest_matches": true,
+          "receipt_matches_order": false,
+          "stock_increased": true,
+          "within_budget": true
+        },
+        "order_id": "PO-511E4C1F93DE4AB896964AB39AFE415C",
+        "receipt_id": "RCPT-511E4C1F",
+        "receipt_sha256": "0adce6c9742786bea178b63ea112b80f67dd9fe756c7ac564012a20f974c7693",
+        "stock_after": 7,
+        "stock_before": 5,
+        "total_cents": 36000
+      }
+    },
+    {
+      "seq": 82,
+      "task_id": "511e4c1f-93de-4ab8-9696-4ab39afe415c",
+      "at": 1793024496.6599064,
+      "kind": "needs_attention",
+      "message": "Outcome is not complete: receipt_matches_order",
+      "detail": {
+        "code": "verification",
+        "epoch": 0,
+        "excluded": [],
+        "retry_at": 0,
+        "tool": "verify_outcome"
+      }
+    }
+  ],
+  "approvals": []
+}

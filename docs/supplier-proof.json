@@ -1,0 +1,38 @@
+{
+  "task_id": "c37e71c8-66bd-44c0-b830-cbfb28b93332",
+  "company_database": "standalone-review.sqlite3",
+  "independent_supplier_database": "standalone-review.supplier.sqlite3",
+  "committed_supplier_orders_for_task": 1,
+  "supplier_record": {
+    "external_order_id": "SUP-c37e71c8-66bd-44c0-b830-cbfb28b93332",
+    "fingerprint": "4611c7d9a0aa3404c708925949c787854fc6f65696f2b395adb624c630a9d2a9",
+    "idempotency_key": "c37e71c8-66bd-44c0-b830-cbfb28b93332",
+    "quantity": 12,
+    "sandbox": true,
+    "sku": "KEYBOARD",
+    "status": "fulfilled",
+    "total_cents": 60000,
+    "vendor": "atlas"
+  },
+  "verification": {
+    "checks": {
+      "authorization_recorded": true,
+      "independent_supplier_matches": true,
+      "inventory_movement_matches": true,
+      "order_matches_goal": true,
+      "order_received": true,
+      "purchase_matches_quote": true,
+      "receipt_digest_matches": true,
+      "receipt_matches_order": true,
+      "stock_increased": true,
+      "within_budget": true
+    },
+    "order_id": "PO-C37E71C866BD44C0B830CBFB28B93332",
+    "receipt_id": "RCPT-C37E71C8",
+    "receipt_sha256": "e8d8a3ac03e5a75fc982091711fad987d86def74f225da043d515439edcb3490",
+    "stock_after": 17,
+    "stock_before": 5,
+    "total_cents": 60000
+  },
+  "note": "Independent ledgers read after the actual browser demo; no real vendor/account used."
+}

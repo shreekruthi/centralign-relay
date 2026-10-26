@@ -1,0 +1,431 @@
+{
+  "id": "f85b8642-1852-47f0-a8b3-55338c6f810f",
+  "goal": "Restock mice",
+  "intent": {
+    "budget_cents": 100,
+    "quantity": 3,
+    "sku": "MOUSE"
+  },
+  "status": "completed",
+  "memory": {
+    "allow_transfer": true,
+    "epoch": 0,
+    "excluded": [],
+    "facts": [
+      "inventory",
+      "policy",
+      "transfer_receipt",
+      "transferred",
+      "verified"
+    ],
+    "missing": [],
+    "outputs": {
+      "read_inventory": {
+        "quantity": 5,
+        "sku": "MOUSE",
+        "surplus_quantity": 6,
+        "surplus_version": 1
+      },
+      "read_policy": {
+        "approval_cents": 50000,
+        "id": 1,
+        "max_order_cents": 200000,
+        "prior_outcomes": [],
+        "version": 1
+      },
+      "transfer_surplus": {
+        "id": "MOVE-f85b8642185247f0a8b355338c6f810f",
+        "quantity": 3,
+        "sku": "MOUSE",
+        "source_before": 6,
+        "stock_before": 5,
+        "task_id": "f85b8642-1852-47f0-a8b3-55338c6f810f"
+      },
+      "verify_transfer": {
+        "checks": {
+          "no_external_purchase": true,
+          "receipt_digest_matches": true,
+          "receipt_matches_transfer": true,
+          "source_decreased": true,
+          "stock_increased": true,
+          "transfer_matches_goal": true,
+          "zero_spend": true
+        },
+        "receipt_id": "TR-f85b8642-1852-47f0-a8b3-55338c6f810f",
+        "route": "internal_transfer",
+        "stock_after": 8,
+        "stock_before": 5,
+        "surplus_after": 3,
+        "total_cents": 0,
+        "transfer_id": "MOVE-f85b8642185247f0a8b355338c6f810f"
+      },
+      "write_transfer_receipt": {
+        "quantity": 3,
+        "receipt_id": "TR-f85b8642-1852-47f0-a8b3-55338c6f810f",
+        "route": "internal_transfer",
+        "sandbox": true,
+        "sku": "MOUSE",
+        "task_id": "f85b8642-1852-47f0-a8b3-55338c6f810f",
+        "total_cents": 0,
+        "transfer_id": "MOVE-f85b8642185247f0a8b355338c6f810f"
+      }
+    },
+    "requested_quantity": 3,
+    "retries": {}
+  },
+  "scenario": "normal",
+  "created": 1793024085.6523485,
+  "updated": 1793024098.8639946,
+  "steps": 5,
+  "retry_at": 0.0,
+  "lease_until": 0.0,
+  "lease_token": null,
+  "events": [
+    {
+      "seq": 1,
+      "task_id": "f85b8642-1852-47f0-a8b3-55338c6f810f",
+      "at": 1793024085.6592205,
+      "kind": "understand",
+      "message": "Goal translated to an explicit outcome contract.",
+      "detail": {
+        "intent": {
+          "sku": "MOUSE"
+        },
+        "interpreter": "offline grammar",
+        "scenario": "normal"
+      }
+    },
+    {
+      "seq": 2,
+      "task_id": "f85b8642-1852-47f0-a8b3-55338c6f810f",
+      "at": 1793024085.6601043,
+      "kind": "clarification_required",
+      "message": "Supply the missing quantity and/or USD budget before any work begins.",
+      "detail": {
+        "missing": [
+          "quantity",
+          "budget_cents"
+        ]
+      }
+    },
+    {
+      "seq": 3,
+      "task_id": "f85b8642-1852-47f0-a8b3-55338c6f810f",
+      "at": 1793024097.9112604,
+      "kind": "human_input",
+      "message": "Clarification recorded; resume the same task.",
+      "detail": {
+        "answers": {
+          "budget_cents": 100,
+          "quantity": 3
+        },
+        "intent": {
+          "budget_cents": 100,
+          "quantity": 3,
+          "sku": "MOUSE"
+        }
+      }
+    },
+    {
+      "seq": 4,
+      "task_id": "f85b8642-1852-47f0-a8b3-55338c6f810f",
+      "at": 1793024097.9850862,
+      "kind": "plan",
+      "message": "Establish the stock baseline for this request.",
+      "detail": {
+        "epoch": 0,
+        "facts": [],
+        "horizon_target": "inventory",
+        "next_tool": "read_inventory",
+        "remaining_plan": [
+          "read_inventory"
+        ]
+      }
+    },
+    {
+      "seq": 5,
+      "task_id": "f85b8642-1852-47f0-a8b3-55338c6f810f",
+      "at": 1793024097.9992454,
+      "kind": "execute",
+      "message": "Read SKU baseline",
+      "detail": {
+        "capability": "inventory.read",
+        "result": {
+          "data": {
+            "quantity": 5,
+            "sku": "MOUSE",
+            "surplus_quantity": 6,
+            "surplus_version": 1
+          },
+          "fact": "inventory"
+        },
+        "tool": "read_inventory"
+      }
+    },
+    {
+      "seq": 6,
+      "task_id": "f85b8642-1852-47f0-a8b3-55338c6f810f",
+      "at": 1793024098.0179386,
+      "kind": "observe",
+      "message": "Observed inventory; replan from the new state.",
+      "detail": {
+        "quantity": 5,
+        "sku": "MOUSE",
+        "surplus_quantity": 6,
+        "surplus_version": 1
+      }
+    },
+    {
+      "seq": 7,
+      "task_id": "f85b8642-1852-47f0-a8b3-55338c6f810f",
+      "at": 1793024098.2114642,
+      "kind": "plan",
+      "message": "Load the company's spending and supplier rules.",
+      "detail": {
+        "epoch": 0,
+        "facts": [
+          "inventory"
+        ],
+        "horizon_target": "policy",
+        "next_tool": "read_policy",
+        "remaining_plan": [
+          "read_policy"
+        ]
+      }
+    },
+    {
+      "seq": 8,
+      "task_id": "f85b8642-1852-47f0-a8b3-55338c6f810f",
+      "at": 1793024098.2436304,
+      "kind": "execute",
+      "message": "Read versioned company spending policy",
+      "detail": {
+        "capability": "company.read",
+        "result": {
+          "data": {
+            "approval_cents": 50000,
+            "id": 1,
+            "max_order_cents": 200000,
+            "prior_outcomes": [],
+            "version": 1
+          },
+          "fact": "policy"
+        },
+        "tool": "read_policy"
+      }
+    },
+    {
+      "seq": 9,
+      "task_id": "f85b8642-1852-47f0-a8b3-55338c6f810f",
+      "at": 1793024098.2654786,
+      "kind": "observe",
+      "message": "Observed policy; replan from the new state.",
+      "detail": {
+        "approval_cents": 50000,
+        "id": 1,
+        "max_order_cents": 200000,
+        "prior_outcomes": [],
+        "version": 1
+      }
+    },
+    {
+      "seq": 10,
+      "task_id": "f85b8642-1852-47f0-a8b3-55338c6f810f",
+      "at": 1793024098.438787,
+      "kind": "plan",
+      "message": "Internal surplus can meet the goal without spending; choose the shorter valid plan.",
+      "detail": {
+        "epoch": 0,
+        "facts": [
+          "inventory",
+          "policy"
+        ],
+        "horizon_target": "verified",
+        "next_tool": "transfer_surplus",
+        "remaining_plan": [
+          "transfer_surplus",
+          "write_transfer_receipt",
+          "verify_transfer"
+        ]
+      }
+    },
+    {
+      "seq": 11,
+      "task_id": "f85b8642-1852-47f0-a8b3-55338c6f810f",
+      "at": 1793024098.4519982,
+      "kind": "execute",
+      "message": "Move internal surplus to the requested stock location",
+      "detail": {
+        "capability": "inventory.write",
+        "result": {
+          "data": {
+            "id": "MOVE-f85b8642185247f0a8b355338c6f810f",
+            "quantity": 3,
+            "sku": "MOUSE",
+            "source_before": 6,
+            "stock_before": 5,
+            "task_id": "f85b8642-1852-47f0-a8b3-55338c6f810f"
+          },
+          "fact": "transferred"
+        },
+        "tool": "transfer_surplus"
+      }
+    },
+    {
+      "seq": 12,
+      "task_id": "f85b8642-1852-47f0-a8b3-55338c6f810f",
+      "at": 1793024098.464494,
+      "kind": "observe",
+      "message": "Observed transferred; replan from the new state.",
+      "detail": {
+        "id": "MOVE-f85b8642185247f0a8b355338c6f810f",
+        "quantity": 3,
+        "sku": "MOUSE",
+        "source_before": 6,
+        "stock_before": 5,
+        "task_id": "f85b8642-1852-47f0-a8b3-55338c6f810f"
+      }
+    },
+    {
+      "seq": 13,
+      "task_id": "f85b8642-1852-47f0-a8b3-55338c6f810f",
+      "at": 1793024098.62673,
+      "kind": "plan",
+      "message": "Record evidence of internal redistribution.",
+      "detail": {
+        "epoch": 0,
+        "facts": [
+          "inventory",
+          "policy",
+          "transferred"
+        ],
+        "horizon_target": "verified",
+        "next_tool": "write_transfer_receipt",
+        "remaining_plan": [
+          "write_transfer_receipt",
+          "verify_transfer"
+        ]
+      }
+    },
+    {
+      "seq": 14,
+      "task_id": "f85b8642-1852-47f0-a8b3-55338c6f810f",
+      "at": 1793024098.637166,
+      "kind": "execute",
+      "message": "Persist internal transfer evidence",
+      "detail": {
+        "capability": "receipts.write",
+        "result": {
+          "data": {
+            "quantity": 3,
+            "receipt_id": "TR-f85b8642-1852-47f0-a8b3-55338c6f810f",
+            "route": "internal_transfer",
+            "sandbox": true,
+            "sku": "MOUSE",
+            "task_id": "f85b8642-1852-47f0-a8b3-55338c6f810f",
+            "total_cents": 0,
+            "transfer_id": "MOVE-f85b8642185247f0a8b355338c6f810f"
+          },
+          "fact": "transfer_receipt"
+        },
+        "tool": "write_transfer_receipt"
+      }
+    },
+    {
+      "seq": 15,
+      "task_id": "f85b8642-1852-47f0-a8b3-55338c6f810f",
+      "at": 1793024098.6545591,
+      "kind": "observe",
+      "message": "Observed transfer_receipt; replan from the new state.",
+      "detail": {
+        "quantity": 3,
+        "receipt_id": "TR-f85b8642-1852-47f0-a8b3-55338c6f810f",
+        "route": "internal_transfer",
+        "sandbox": true,
+        "sku": "MOUSE",
+        "task_id": "f85b8642-1852-47f0-a8b3-55338c6f810f",
+        "total_cents": 0,
+        "transfer_id": "MOVE-f85b8642185247f0a8b355338c6f810f"
+      }
+    },
+    {
+      "seq": 16,
+      "task_id": "f85b8642-1852-47f0-a8b3-55338c6f810f",
+      "at": 1793024098.8341715,
+      "kind": "plan",
+      "message": "Verify both stock locations and the transfer receipt; no purchase should exist.",
+      "detail": {
+        "epoch": 0,
+        "facts": [
+          "inventory",
+          "policy",
+          "transfer_receipt",
+          "transferred"
+        ],
+        "horizon_target": "verified",
+        "next_tool": "verify_transfer",
+        "remaining_plan": [
+          "verify_transfer"
+        ]
+      }
+    },
+    {
+      "seq": 17,
+      "task_id": "f85b8642-1852-47f0-a8b3-55338c6f810f",
+      "at": 1793024098.8484938,
+      "kind": "execute",
+      "message": "Independently verify both stock locations and transfer evidence",
+      "detail": {
+        "capability": "company.read",
+        "result": {
+          "data": {
+            "checks": {
+              "no_external_purchase": true,
+              "receipt_digest_matches": true,
+              "receipt_matches_transfer": true,
+              "source_decreased": true,
+              "stock_increased": true,
+              "transfer_matches_goal": true,
+              "zero_spend": true
+            },
+            "receipt_id": "TR-f85b8642-1852-47f0-a8b3-55338c6f810f",
+            "route": "internal_transfer",
+            "stock_after": 8,
+            "stock_before": 5,
+            "surplus_after": 3,
+            "total_cents": 0,
+            "transfer_id": "MOVE-f85b8642185247f0a8b355338c6f810f"
+          },
+          "fact": "verified"
+        },
+        "tool": "verify_transfer"
+      }
+    },
+    {
+      "seq": 18,
+      "task_id": "f85b8642-1852-47f0-a8b3-55338c6f810f",
+      "at": 1793024098.8642259,
+      "kind": "complete",
+      "message": "All outcome checks passed; task completed.",
+      "detail": {
+        "checks": {
+          "no_external_purchase": true,
+          "receipt_digest_matches": true,
+          "receipt_matches_transfer": true,
+          "source_decreased": true,
+          "stock_increased": true,
+          "transfer_matches_goal": true,
+          "zero_spend": true
+        },
+        "receipt_id": "TR-f85b8642-1852-47f0-a8b3-55338c6f810f",
+        "route": "internal_transfer",
+        "stock_after": 8,
+        "stock_before": 5,
+        "surplus_after": 3,
+        "total_cents": 0,
+        "transfer_id": "MOVE-f85b8642185247f0a8b355338c6f810f"
+      }
+    }
+  ],
+  "approvals": []
+}

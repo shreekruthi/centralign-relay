@@ -1,0 +1,886 @@
+{
+  "id": "c37e71c8-66bd-44c0-b830-cbfb28b93332",
+  "goal": "Restock 12 keyboards within $900",
+  "intent": {
+    "budget_cents": 90000,
+    "quantity": 12,
+    "sku": "KEYBOARD"
+  },
+  "status": "completed",
+  "memory": {
+    "allow_transfer": true,
+    "epoch": 0,
+    "excluded": [],
+    "facts": [
+      "authorized",
+      "inventory",
+      "ordered",
+      "policy",
+      "purchase_uncertain",
+      "quote",
+      "receipt",
+      "received",
+      "suppliers",
+      "verified"
+    ],
+    "missing": [],
+    "outputs": {
+      "authorize": {
+        "approval_id": "424a0db2-aa9e-4806-9917-af37b46dce0c",
+        "fingerprint": "4611c7d9a0aa3404c708925949c787854fc6f65696f2b395adb624c630a9d2a9",
+        "mode": "human"
+      },
+      "choose_quote": {
+        "expires_at": 1793024486.7310712,
+        "policy_version": 1,
+        "quantity": 12,
+        "selection_basis": "Lowest feasible price; verified prior successes break price ties.",
+        "sku": "KEYBOARD",
+        "total_cents": 60000,
+        "unit_cents": 5000,
+        "vendor": "atlas",
+        "vendor_name": "Atlas Supply",
+        "vendor_version": 1
+      },
+      "read_inventory": {
+        "quantity": 5,
+        "sku": "KEYBOARD",
+        "surplus_quantity": 0,
+        "surplus_version": 1
+      },
+      "read_policy": {
+        "approval_cents": 50000,
+        "id": 1,
+        "max_order_cents": 200000,
+        "prior_outcomes": [],
+        "version": 1
+      },
+      "receive_order": {
+        "order_id": "PO-C37E71C866BD44C0B830CBFB28B93332",
+        "quantity": 12
+      },
+      "reconcile_purchase": {
+        "external_order_id": "SUP-c37e71c8-66bd-44c0-b830-cbfb28b93332",
+        "fingerprint": "4611c7d9a0aa3404c708925949c787854fc6f65696f2b395adb624c630a9d2a9",
+        "id": "PO-C37E71C866BD44C0B830CBFB28B93332",
+        "quantity": 12,
+        "quote": "{\"expires_at\":1793024486.7310712,\"policy_version\":1,\"quantity\":12,\"selection_basis\":\"Lowest feasible price; verified prior successes break price ties.\",\"sku\":\"KEYBOARD\",\"total_cents\":60000,\"unit_cents\":5000,\"vendor\":\"atlas\",\"vendor_name\":\"Atlas Supply\",\"vendor_version\":1}",
+        "sku": "KEYBOARD",
+        "status": "placed",
+        "task_id": "c37e71c8-66bd-44c0-b830-cbfb28b93332",
+        "total_cents": 60000,
+        "vendor": "atlas"
+      },
+      "search_suppliers": [
+        {
+          "id": "atlas",
+          "name": "Atlas Supply",
+          "prior_verified_successes": 0,
+          "sku": "KEYBOARD",
+          "stock": 100,
+          "unit_cents": 5000,
+          "version": 1
+        },
+        {
+          "id": "beacon",
+          "name": "Beacon Office",
+          "prior_verified_successes": 0,
+          "sku": "KEYBOARD",
+          "stock": 100,
+          "unit_cents": 6000,
+          "version": 1
+        }
+      ],
+      "verify_outcome": {
+        "checks": {
+          "authorization_recorded": true,
+          "independent_supplier_matches": true,
+          "inventory_movement_matches": true,
+          "order_matches_goal": true,
+          "order_received": true,
+          "purchase_matches_quote": true,
+          "receipt_digest_matches": true,
+          "receipt_matches_order": true,
+          "stock_increased": true,
+          "within_budget": true
+        },
+        "order_id": "PO-C37E71C866BD44C0B830CBFB28B93332",
+        "receipt_id": "RCPT-C37E71C8",
+        "receipt_sha256": "e8d8a3ac03e5a75fc982091711fad987d86def74f225da043d515439edcb3490",
+        "stock_after": 17,
+        "stock_before": 5,
+        "total_cents": 60000
+      },
+      "write_receipt": {
+        "body": "{\"currency\":\"USD\",\"order_id\":\"PO-C37E71C866BD44C0B830CBFB28B93332\",\"purchase_fingerprint\":\"4611c7d9a0aa3404c708925949c787854fc6f65696f2b395adb624c630a9d2a9\",\"quantity\":12,\"receipt_id\":\"RCPT-C37E71C8\",\"sandbox\":true,\"sku\":\"KEYBOARD\",\"task_id\":\"c37e71c8-66bd-44c0-b830-cbfb28b93332\",\"total_cents\":60000,\"vendor\":\"atlas\"}",
+        "id": "RCPT-C37E71C8",
+        "order_id": "PO-C37E71C866BD44C0B830CBFB28B93332",
+        "quantity": 12,
+        "sha256": "e8d8a3ac03e5a75fc982091711fad987d86def74f225da043d515439edcb3490",
+        "total_cents": 60000
+      }
+    },
+    "requested_quantity": 12,
+    "retries": {
+      "place_order": 1
+    }
+  },
+  "scenario": "timeout_after_commit",
+  "created": 1793024185.9299667,
+  "updated": 1793024198.9564695,
+  "steps": 11,
+  "retry_at": 0.0,
+  "lease_until": 0.0,
+  "lease_token": null,
+  "events": [
+    {
+      "seq": 19,
+      "task_id": "c37e71c8-66bd-44c0-b830-cbfb28b93332",
+      "at": 1793024185.9377446,
+      "kind": "understand",
+      "message": "Goal translated to an explicit outcome contract.",
+      "detail": {
+        "intent": {
+          "budget_cents": 90000,
+          "quantity": 12,
+          "sku": "KEYBOARD"
+        },
+        "interpreter": "offline grammar",
+        "scenario": "timeout_after_commit"
+      }
+    },
+    {
+      "seq": 20,
+      "task_id": "c37e71c8-66bd-44c0-b830-cbfb28b93332",
+      "at": 1793024186.0431893,
+      "kind": "plan",
+      "message": "Establish the stock baseline for this request.",
+      "detail": {
+        "epoch": 0,
+        "facts": [],
+        "horizon_target": "inventory",
+        "next_tool": "read_inventory",
+        "remaining_plan": [
+          "read_inventory"
+        ]
+      }
+    },
+    {
+      "seq": 21,
+      "task_id": "c37e71c8-66bd-44c0-b830-cbfb28b93332",
+      "at": 1793024186.0587485,
+      "kind": "execute",
+      "message": "Read SKU baseline",
+      "detail": {
+        "capability": "inventory.read",
+        "result": {
+          "data": {
+            "quantity": 5,
+            "sku": "KEYBOARD",
+            "surplus_quantity": 0,
+            "surplus_version": 1
+          },
+          "fact": "inventory"
+        },
+        "tool": "read_inventory"
+      }
+    },
+    {
+      "seq": 22,
+      "task_id": "c37e71c8-66bd-44c0-b830-cbfb28b93332",
+      "at": 1793024186.0809314,
+      "kind": "observe",
+      "message": "Observed inventory; replan from the new state.",
+      "detail": {
+        "quantity": 5,
+        "sku": "KEYBOARD",
+        "surplus_quantity": 0,
+        "surplus_version": 1
+      }
+    },
+    {
+      "seq": 23,
+      "task_id": "c37e71c8-66bd-44c0-b830-cbfb28b93332",
+      "at": 1793024186.2644997,
+      "kind": "plan",
+      "message": "Load the company's spending and supplier rules.",
+      "detail": {
+        "epoch": 0,
+        "facts": [
+          "inventory"
+        ],
+        "horizon_target": "policy",
+        "next_tool": "read_policy",
+        "remaining_plan": [
+          "read_policy"
+        ]
+      }
+    },
+    {
+      "seq": 24,
+      "task_id": "c37e71c8-66bd-44c0-b830-cbfb28b93332",
+      "at": 1793024186.291368,
+      "kind": "execute",
+      "message": "Read versioned company spending policy",
+      "detail": {
+        "capability": "company.read",
+        "result": {
+          "data": {
+            "approval_cents": 50000,
+            "id": 1,
+            "max_order_cents": 200000,
+            "prior_outcomes": [],
+            "version": 1
+          },
+          "fact": "policy"
+        },
+        "tool": "read_policy"
+      }
+    },
+    {
+      "seq": 25,
+      "task_id": "c37e71c8-66bd-44c0-b830-cbfb28b93332",
+      "at": 1793024186.3251731,
+      "kind": "observe",
+      "message": "Observed policy; replan from the new state.",
+      "detail": {
+        "approval_cents": 50000,
+        "id": 1,
+        "max_order_cents": 200000,
+        "prior_outcomes": [],
+        "version": 1
+      }
+    },
+    {
+      "seq": 26,
+      "task_id": "c37e71c8-66bd-44c0-b830-cbfb28b93332",
+      "at": 1793024186.5109541,
+      "kind": "plan",
+      "message": "Discover approved suppliers with sufficient stock.",
+      "detail": {
+        "epoch": 0,
+        "facts": [
+          "inventory",
+          "policy"
+        ],
+        "horizon_target": "verified",
+        "next_tool": "search_suppliers",
+        "remaining_plan": [
+          "search_suppliers",
+          "choose_quote",
+          "authorize",
+          "place_order",
+          "receive_order",
+          "write_receipt",
+          "verify_outcome"
+        ]
+      }
+    },
+    {
+      "seq": 27,
+      "task_id": "c37e71c8-66bd-44c0-b830-cbfb28b93332",
+      "at": 1793024186.5331283,
+      "kind": "execute",
+      "message": "Discover approved, stocked suppliers",
+      "detail": {
+        "capability": "suppliers.read",
+        "result": {
+          "data": [
+            {
+              "id": "atlas",
+              "name": "Atlas Supply",
+              "prior_verified_successes": 0,
+              "sku": "KEYBOARD",
+              "stock": 100,
+              "unit_cents": 5000,
+              "version": 1
+            },
+            {
+              "id": "beacon",
+              "name": "Beacon Office",
+              "prior_verified_successes": 0,
+              "sku": "KEYBOARD",
+              "stock": 100,
+              "unit_cents": 6000,
+              "version": 1
+            }
+          ],
+          "fact": "suppliers"
+        },
+        "tool": "search_suppliers"
+      }
+    },
+    {
+      "seq": 28,
+      "task_id": "c37e71c8-66bd-44c0-b830-cbfb28b93332",
+      "at": 1793024186.5488198,
+      "kind": "observe",
+      "message": "Observed suppliers; replan from the new state.",
+      "detail": [
+        {
+          "id": "atlas",
+          "name": "Atlas Supply",
+          "prior_verified_successes": 0,
+          "sku": "KEYBOARD",
+          "stock": 100,
+          "unit_cents": 5000,
+          "version": 1
+        },
+        {
+          "id": "beacon",
+          "name": "Beacon Office",
+          "prior_verified_successes": 0,
+          "sku": "KEYBOARD",
+          "stock": 100,
+          "unit_cents": 6000,
+          "version": 1
+        }
+      ]
+    },
+    {
+      "seq": 29,
+      "task_id": "c37e71c8-66bd-44c0-b830-cbfb28b93332",
+      "at": 1793024186.717519,
+      "kind": "plan",
+      "message": "Choose the least expensive feasible current quote.",
+      "detail": {
+        "epoch": 0,
+        "facts": [
+          "inventory",
+          "policy",
+          "suppliers"
+        ],
+        "horizon_target": "verified",
+        "next_tool": "choose_quote",
+        "remaining_plan": [
+          "choose_quote",
+          "authorize",
+          "place_order",
+          "receive_order",
+          "write_receipt",
+          "verify_outcome"
+        ]
+      }
+    },
+    {
+      "seq": 30,
+      "task_id": "c37e71c8-66bd-44c0-b830-cbfb28b93332",
+      "at": 1793024186.7311208,
+      "kind": "execute",
+      "message": "Rank budget-feasible quotes",
+      "detail": {
+        "capability": "quotes.read",
+        "result": {
+          "data": {
+            "expires_at": 1793024486.7310712,
+            "policy_version": 1,
+            "quantity": 12,
+            "selection_basis": "Lowest feasible price; verified prior successes break price ties.",
+            "sku": "KEYBOARD",
+            "total_cents": 60000,
+            "unit_cents": 5000,
+            "vendor": "atlas",
+            "vendor_name": "Atlas Supply",
+            "vendor_version": 1
+          },
+          "fact": "quote"
+        },
+        "tool": "choose_quote"
+      }
+    },
+    {
+      "seq": 31,
+      "task_id": "c37e71c8-66bd-44c0-b830-cbfb28b93332",
+      "at": 1793024186.7477696,
+      "kind": "observe",
+      "message": "Observed quote; replan from the new state.",
+      "detail": {
+        "expires_at": 1793024486.7310712,
+        "policy_version": 1,
+        "quantity": 12,
+        "selection_basis": "Lowest feasible price; verified prior successes break price ties.",
+        "sku": "KEYBOARD",
+        "total_cents": 60000,
+        "unit_cents": 5000,
+        "vendor": "atlas",
+        "vendor_name": "Atlas Supply",
+        "vendor_version": 1
+      }
+    },
+    {
+      "seq": 32,
+      "task_id": "c37e71c8-66bd-44c0-b830-cbfb28b93332",
+      "at": 1793024186.9273922,
+      "kind": "plan",
+      "message": "Check spending authority; pause for a bound human decision if needed.",
+      "detail": {
+        "epoch": 0,
+        "facts": [
+          "inventory",
+          "policy",
+          "quote",
+          "suppliers"
+        ],
+        "horizon_target": "verified",
+        "next_tool": "authorize",
+        "remaining_plan": [
+          "authorize",
+          "place_order",
+          "receive_order",
+          "write_receipt",
+          "verify_outcome"
+        ]
+      }
+    },
+    {
+      "seq": 33,
+      "task_id": "c37e71c8-66bd-44c0-b830-cbfb28b93332",
+      "at": 1793024186.9524271,
+      "kind": "execute",
+      "message": "Request approval for exact purchase fingerprint",
+      "detail": {
+        "capability": "approval.request",
+        "result": {
+          "data": {
+            "expires_at": 1793024486.7310712,
+            "policy_version": 1,
+            "quantity": 12,
+            "selection_basis": "Lowest feasible price; verified prior successes break price ties.",
+            "sku": "KEYBOARD",
+            "total_cents": 60000,
+            "unit_cents": 5000,
+            "vendor": "atlas",
+            "vendor_name": "Atlas Supply",
+            "vendor_version": 1
+          },
+          "waiting": "424a0db2-aa9e-4806-9917-af37b46dce0c"
+        },
+        "tool": "authorize"
+      }
+    },
+    {
+      "seq": 34,
+      "task_id": "c37e71c8-66bd-44c0-b830-cbfb28b93332",
+      "at": 1793024186.9706943,
+      "kind": "approval_required",
+      "message": "Human approval required for this exact vendor, price and quantity.",
+      "detail": {
+        "approval_id": "424a0db2-aa9e-4806-9917-af37b46dce0c",
+        "quote": {
+          "expires_at": 1793024486.7310712,
+          "policy_version": 1,
+          "quantity": 12,
+          "selection_basis": "Lowest feasible price; verified prior successes break price ties.",
+          "sku": "KEYBOARD",
+          "total_cents": 60000,
+          "unit_cents": 5000,
+          "vendor": "atlas",
+          "vendor_name": "Atlas Supply",
+          "vendor_version": 1
+        }
+      }
+    },
+    {
+      "seq": 35,
+      "task_id": "c37e71c8-66bd-44c0-b830-cbfb28b93332",
+      "at": 1793024197.4787729,
+      "kind": "human_decision",
+      "message": "Human approved purchase.",
+      "detail": {
+        "approval_id": "424a0db2-aa9e-4806-9917-af37b46dce0c",
+        "decision": "approved",
+        "reason": ""
+      }
+    },
+    {
+      "seq": 36,
+      "task_id": "c37e71c8-66bd-44c0-b830-cbfb28b93332",
+      "at": 1793024197.5688698,
+      "kind": "plan",
+      "message": "Check spending authority; pause for a bound human decision if needed.",
+      "detail": {
+        "epoch": 0,
+        "facts": [
+          "inventory",
+          "policy",
+          "quote",
+          "suppliers"
+        ],
+        "horizon_target": "verified",
+        "next_tool": "authorize",
+        "remaining_plan": [
+          "authorize",
+          "place_order",
+          "receive_order",
+          "write_receipt",
+          "verify_outcome"
+        ]
+      }
+    },
+    {
+      "seq": 37,
+      "task_id": "c37e71c8-66bd-44c0-b830-cbfb28b93332",
+      "at": 1793024197.6269548,
+      "kind": "execute",
+      "message": "Request approval for exact purchase fingerprint",
+      "detail": {
+        "capability": "approval.request",
+        "result": {
+          "data": {
+            "approval_id": "424a0db2-aa9e-4806-9917-af37b46dce0c",
+            "fingerprint": "4611c7d9a0aa3404c708925949c787854fc6f65696f2b395adb624c630a9d2a9",
+            "mode": "human"
+          },
+          "fact": "authorized"
+        },
+        "tool": "authorize"
+      }
+    },
+    {
+      "seq": 38,
+      "task_id": "c37e71c8-66bd-44c0-b830-cbfb28b93332",
+      "at": 1793024197.6533973,
+      "kind": "observe",
+      "message": "Observed authorized; replan from the new state.",
+      "detail": {
+        "approval_id": "424a0db2-aa9e-4806-9917-af37b46dce0c",
+        "fingerprint": "4611c7d9a0aa3404c708925949c787854fc6f65696f2b395adb624c630a9d2a9",
+        "mode": "human"
+      }
+    },
+    {
+      "seq": 39,
+      "task_id": "c37e71c8-66bd-44c0-b830-cbfb28b93332",
+      "at": 1793024197.834981,
+      "kind": "plan",
+      "message": "Commit one purchase with an idempotency key.",
+      "detail": {
+        "epoch": 0,
+        "facts": [
+          "authorized",
+          "inventory",
+          "policy",
+          "quote",
+          "suppliers"
+        ],
+        "horizon_target": "verified",
+        "next_tool": "place_order",
+        "remaining_plan": [
+          "place_order",
+          "receive_order",
+          "write_receipt",
+          "verify_outcome"
+        ]
+      }
+    },
+    {
+      "seq": 40,
+      "task_id": "c37e71c8-66bd-44c0-b830-cbfb28b93332",
+      "at": 1793024197.8682559,
+      "kind": "purchase_intent",
+      "message": "Persisted exact purchase intent before crossing the HTTP boundary.",
+      "detail": {
+        "fingerprint": "4611c7d9a0aa3404c708925949c787854fc6f65696f2b395adb624c630a9d2a9",
+        "idempotency_key": "c37e71c8-66bd-44c0-b830-cbfb28b93332"
+      }
+    },
+    {
+      "seq": 41,
+      "task_id": "c37e71c8-66bd-44c0-b830-cbfb28b93332",
+      "at": 1793024197.8980482,
+      "kind": "adapt",
+      "message": "Checkout response lost. The supplier may have committed; query its ledger before another write.",
+      "detail": {
+        "code": "uncertain",
+        "epoch": 0,
+        "excluded": [],
+        "retry_at": 1793024198.1423578,
+        "tool": "place_order"
+      }
+    },
+    {
+      "seq": 42,
+      "task_id": "c37e71c8-66bd-44c0-b830-cbfb28b93332",
+      "at": 1793024198.2214026,
+      "kind": "plan",
+      "message": "Purchase outcome is uncertain. Query the supplier ledger before considering another write.",
+      "detail": {
+        "epoch": 0,
+        "facts": [
+          "authorized",
+          "inventory",
+          "policy",
+          "purchase_uncertain",
+          "quote",
+          "suppliers"
+        ],
+        "horizon_target": "verified",
+        "next_tool": "reconcile_purchase",
+        "remaining_plan": [
+          "reconcile_purchase",
+          "receive_order",
+          "write_receipt",
+          "verify_outcome"
+        ]
+      }
+    },
+    {
+      "seq": 43,
+      "task_id": "c37e71c8-66bd-44c0-b830-cbfb28b93332",
+      "at": 1793024198.256366,
+      "kind": "reconcile",
+      "message": "Confirmed the purchase in the independent supplier ledger. No second purchase was needed.",
+      "detail": {
+        "external_order_id": "SUP-c37e71c8-66bd-44c0-b830-cbfb28b93332",
+        "idempotency_key": "c37e71c8-66bd-44c0-b830-cbfb28b93332",
+        "tool": "reconcile_purchase"
+      }
+    },
+    {
+      "seq": 44,
+      "task_id": "c37e71c8-66bd-44c0-b830-cbfb28b93332",
+      "at": 1793024198.2775168,
+      "kind": "observe",
+      "message": "Observed ordered; replan from the new state.",
+      "detail": {
+        "external_order_id": "SUP-c37e71c8-66bd-44c0-b830-cbfb28b93332",
+        "fingerprint": "4611c7d9a0aa3404c708925949c787854fc6f65696f2b395adb624c630a9d2a9",
+        "id": "PO-C37E71C866BD44C0B830CBFB28B93332",
+        "quantity": 12,
+        "quote": "{\"expires_at\":1793024486.7310712,\"policy_version\":1,\"quantity\":12,\"selection_basis\":\"Lowest feasible price; verified prior successes break price ties.\",\"sku\":\"KEYBOARD\",\"total_cents\":60000,\"unit_cents\":5000,\"vendor\":\"atlas\",\"vendor_name\":\"Atlas Supply\",\"vendor_version\":1}",
+        "sku": "KEYBOARD",
+        "status": "placed",
+        "task_id": "c37e71c8-66bd-44c0-b830-cbfb28b93332",
+        "total_cents": 60000,
+        "vendor": "atlas"
+      }
+    },
+    {
+      "seq": 45,
+      "task_id": "c37e71c8-66bd-44c0-b830-cbfb28b93332",
+      "at": 1793024198.4635878,
+      "kind": "plan",
+      "message": "Record sandbox fulfillment and inventory movement.",
+      "detail": {
+        "epoch": 0,
+        "facts": [
+          "authorized",
+          "inventory",
+          "ordered",
+          "policy",
+          "purchase_uncertain",
+          "quote",
+          "suppliers"
+        ],
+        "horizon_target": "verified",
+        "next_tool": "receive_order",
+        "remaining_plan": [
+          "receive_order",
+          "write_receipt",
+          "verify_outcome"
+        ]
+      }
+    },
+    {
+      "seq": 46,
+      "task_id": "c37e71c8-66bd-44c0-b830-cbfb28b93332",
+      "at": 1793024198.500209,
+      "kind": "execute",
+      "message": "Fulfill a sandbox order exactly once",
+      "detail": {
+        "capability": "inventory.write",
+        "result": {
+          "data": {
+            "order_id": "PO-C37E71C866BD44C0B830CBFB28B93332",
+            "quantity": 12
+          },
+          "fact": "received"
+        },
+        "tool": "receive_order"
+      }
+    },
+    {
+      "seq": 47,
+      "task_id": "c37e71c8-66bd-44c0-b830-cbfb28b93332",
+      "at": 1793024198.5182548,
+      "kind": "observe",
+      "message": "Observed received; replan from the new state.",
+      "detail": {
+        "order_id": "PO-C37E71C866BD44C0B830CBFB28B93332",
+        "quantity": 12
+      }
+    },
+    {
+      "seq": 48,
+      "task_id": "c37e71c8-66bd-44c0-b830-cbfb28b93332",
+      "at": 1793024198.6970325,
+      "kind": "plan",
+      "message": "Create a persisted receipt and a content digest.",
+      "detail": {
+        "epoch": 0,
+        "facts": [
+          "authorized",
+          "inventory",
+          "ordered",
+          "policy",
+          "purchase_uncertain",
+          "quote",
+          "received",
+          "suppliers"
+        ],
+        "horizon_target": "verified",
+        "next_tool": "write_receipt",
+        "remaining_plan": [
+          "write_receipt",
+          "verify_outcome"
+        ]
+      }
+    },
+    {
+      "seq": 49,
+      "task_id": "c37e71c8-66bd-44c0-b830-cbfb28b93332",
+      "at": 1793024198.7130995,
+      "kind": "execute",
+      "message": "Persist a downloadable receipt with SHA-256",
+      "detail": {
+        "capability": "receipts.write",
+        "result": {
+          "data": {
+            "body": "{\"currency\":\"USD\",\"order_id\":\"PO-C37E71C866BD44C0B830CBFB28B93332\",\"purchase_fingerprint\":\"4611c7d9a0aa3404c708925949c787854fc6f65696f2b395adb624c630a9d2a9\",\"quantity\":12,\"receipt_id\":\"RCPT-C37E71C8\",\"sandbox\":true,\"sku\":\"KEYBOARD\",\"task_id\":\"c37e71c8-66bd-44c0-b830-cbfb28b93332\",\"total_cents\":60000,\"vendor\":\"atlas\"}",
+            "id": "RCPT-C37E71C8",
+            "order_id": "PO-C37E71C866BD44C0B830CBFB28B93332",
+            "quantity": 12,
+            "sha256": "e8d8a3ac03e5a75fc982091711fad987d86def74f225da043d515439edcb3490",
+            "total_cents": 60000
+          },
+          "fact": "receipt"
+        },
+        "tool": "write_receipt"
+      }
+    },
+    {
+      "seq": 50,
+      "task_id": "c37e71c8-66bd-44c0-b830-cbfb28b93332",
+      "at": 1793024198.7332718,
+      "kind": "observe",
+      "message": "Observed receipt; replan from the new state.",
+      "detail": {
+        "body": "{\"currency\":\"USD\",\"order_id\":\"PO-C37E71C866BD44C0B830CBFB28B93332\",\"purchase_fingerprint\":\"4611c7d9a0aa3404c708925949c787854fc6f65696f2b395adb624c630a9d2a9\",\"quantity\":12,\"receipt_id\":\"RCPT-C37E71C8\",\"sandbox\":true,\"sku\":\"KEYBOARD\",\"task_id\":\"c37e71c8-66bd-44c0-b830-cbfb28b93332\",\"total_cents\":60000,\"vendor\":\"atlas\"}",
+        "id": "RCPT-C37E71C8",
+        "order_id": "PO-C37E71C866BD44C0B830CBFB28B93332",
+        "quantity": 12,
+        "sha256": "e8d8a3ac03e5a75fc982091711fad987d86def74f225da043d515439edcb3490",
+        "total_cents": 60000
+      }
+    },
+    {
+      "seq": 51,
+      "task_id": "c37e71c8-66bd-44c0-b830-cbfb28b93332",
+      "at": 1793024198.9030282,
+      "kind": "plan",
+      "message": "Independently compare goal, order, inventory movement and receipt.",
+      "detail": {
+        "epoch": 0,
+        "facts": [
+          "authorized",
+          "inventory",
+          "ordered",
+          "policy",
+          "purchase_uncertain",
+          "quote",
+          "receipt",
+          "received",
+          "suppliers"
+        ],
+        "horizon_target": "verified",
+        "next_tool": "verify_outcome",
+        "remaining_plan": [
+          "verify_outcome"
+        ]
+      }
+    },
+    {
+      "seq": 52,
+      "task_id": "c37e71c8-66bd-44c0-b830-cbfb28b93332",
+      "at": 1793024198.9404173,
+      "kind": "execute",
+      "message": "Read back and verify all outcome predicates",
+      "detail": {
+        "capability": "company.read",
+        "result": {
+          "data": {
+            "checks": {
+              "authorization_recorded": true,
+              "independent_supplier_matches": true,
+              "inventory_movement_matches": true,
+              "order_matches_goal": true,
+              "order_received": true,
+              "purchase_matches_quote": true,
+              "receipt_digest_matches": true,
+              "receipt_matches_order": true,
+              "stock_increased": true,
+              "within_budget": true
+            },
+            "order_id": "PO-C37E71C866BD44C0B830CBFB28B93332",
+            "receipt_id": "RCPT-C37E71C8",
+            "receipt_sha256": "e8d8a3ac03e5a75fc982091711fad987d86def74f225da043d515439edcb3490",
+            "stock_after": 17,
+            "stock_before": 5,
+            "total_cents": 60000
+          },
+          "fact": "verified"
+        },
+        "tool": "verify_outcome"
+      }
+    },
+    {
+      "seq": 53,
+      "task_id": "c37e71c8-66bd-44c0-b830-cbfb28b93332",
+      "at": 1793024198.9568624,
+      "kind": "complete",
+      "message": "All outcome checks passed; task completed.",
+      "detail": {
+        "checks": {
+          "authorization_recorded": true,
+          "independent_supplier_matches": true,
+          "inventory_movement_matches": true,
+          "order_matches_goal": true,
+          "order_received": true,
+          "purchase_matches_quote": true,
+          "receipt_digest_matches": true,
+          "receipt_matches_order": true,
+          "stock_increased": true,
+          "within_budget": true
+        },
+        "order_id": "PO-C37E71C866BD44C0B830CBFB28B93332",
+        "receipt_id": "RCPT-C37E71C8",
+        "receipt_sha256": "e8d8a3ac03e5a75fc982091711fad987d86def74f225da043d515439edcb3490",
+        "stock_after": 17,
+        "stock_before": 5,
+        "total_cents": 60000
+      }
+    }
+  ],
+  "approvals": [
+    {
+      "id": "424a0db2-aa9e-4806-9917-af37b46dce0c",
+      "task_id": "c37e71c8-66bd-44c0-b830-cbfb28b93332",
+      "fingerprint": "4611c7d9a0aa3404c708925949c787854fc6f65696f2b395adb624c630a9d2a9",
+      "payload": {
+        "expires_at": 1793024486.7310712,
+        "policy_version": 1,
+        "quantity": 12,
+        "selection_basis": "Lowest feasible price; verified prior successes break price ties.",
+        "sku": "KEYBOARD",
+        "total_cents": 60000,
+        "unit_cents": 5000,
+        "vendor": "atlas",
+        "vendor_name": "Atlas Supply",
+        "vendor_version": 1
+      },
+      "status": "approved",
+      "decided_at": 1793024197.4784567,
+      "reason": ""
+    }
+  ]
+}
