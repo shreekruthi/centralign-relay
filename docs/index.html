@@ -1,14 +1,19 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Relay 2 — CentrAlign AI engineering submission</title><style>
-*{box-sizing:border-box}body{margin:0;background:#f3f5ef;color:#26392f;font:16px/1.6 system-ui,sans-serif}main{max-width:1100px;margin:auto;padding:54px 24px}.eyebrow{font-size:12px;letter-spacing:2px;color:#53735c}h1{font-size:clamp(32px,5vw,54px);line-height:1.1;letter-spacing:-2px;margin:18px 0}.lede{max-width:780px;color:#607061}video{display:block;width:100%;margin:30px 0 12px;background:#172d24;border-radius:12px;box-shadow:0 14px 40px #20342816}a{color:#205a45}nav{display:flex;flex-wrap:wrap;gap:12px;margin:24px 0}nav a{padding:10px 16px;border:1px solid #ccd9c6;border-radius:7px;text-decoration:none}.note{font-size:13px;color:#697663}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;margin-top:35px}.card{background:#fff;border:1px solid #dce4d6;padding:22px;border-radius:10px}.card h2{font-size:18px;margin:0 0 10px}.card p{font-size:14px;color:#637361;margin:0}code{background:#e7eddf;padding:4px 8px;border-radius:4px}footer{margin-top:35px;font-size:13px;color:#74816e}
-</style></head><body><main>
-<p class="eyebrow">CENTRALIGN AI / FOUNDING ENGINEER TAKE-HOME</p>
-<h1>Relay 2<br>From request to verified outcome.</h1>
-<p class="lede">A standalone company operator with alternative fulfillment plans, human approval checkpoints, durable execution, and recovery across an independent supplier HTTP API.</p>
-<nav><a href="https://github.com/shreekruthi/centralign-relay">View source on GitHub ↗</a><a href="https://github.com/shreekruthi/centralign-relay/archive/refs/heads/main.zip">Download runnable project ↓</a><a href="https://github.com/shreekruthi/centralign-relay/blob/main/docs/ARCHITECTURE.md">Architecture</a><a href="https://github.com/shreekruthi/centralign-relay/blob/main/docs/TEST_REPORT.md">62 passing tests</a></nav>
-<video id="demo" controls preload="metadata" poster="screenshots/standalone-completed.png"><source src="demo.mp4" type="video/mp4"><a href="demo.mp4">Download the demo video</a></video>
-<p class="note">56-second captioned walkthrough assembled from screenshots of actual execution. Editorial pauses are disclosed; this is not a continuous screen recording, performance benchmark, or hosted interactive operator.</p>
-<div class="grid"><section class="card"><h2>Clarify and choose</h2><p>Ask for missing limits, discover company surplus, and choose a zero-spend internal transfer when it can meet the goal.</p></section><section class="card"><h2>Recover without duplication</h2><p>The supplier commits, then loses its response. Relay queries its independent ledger instead of blindly buying again.</p></section><section class="card"><h2>Prove completion</h2><p>Read back stock, orders, authority, receipts and supplier records. A mismatch requires investigation.</p></section></div>
-<p>Run locally with Python 3.11+: <code>python run.py</code>. No package installation, Docker, API key, or real company account is needed.</p>
-<footer>Bounded symbolic planning · Optional local-model interpretation (not live-tested) · Fictional company data · Developed with OpenAI Codex assistance</footer>
-</main></body></html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Relay demo</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; width: 100%; height: 100%; background: #000; }
+    body { display: grid; place-items: center; }
+    video { display: block; width: 100%; height: 100%; object-fit: contain; }
+  </style>
+</head>
+<body>
+  <video id="demo" controls playsinline preload="metadata" aria-label="Relay demo video" poster="screenshots/standalone-completed.png">
+    <source src="demo.mp4" type="video/mp4">
+  </video>
+</body>
+</html>
