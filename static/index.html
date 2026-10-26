@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Relay · Company operator</title><link rel="stylesheet" href="/style.css"><script src="/app.js" defer></script></head>
+<body>
+<header><a class="brand" href="/" aria-label="Relay home"><span class="brand-mark">↗</span> relay<span class="brand-note">COMPANY OPERATOR</span></a><span class="sandbox"><span class="dot"></span> LOCAL SANDBOX · NO REAL SPEND</span></header>
+<main>
+<section class="intro"><div><p class="eyebrow">FROM REQUEST TO RECEIPT / RELAY 2</p><h1>Give it an outcome.<br>Watch the work happen.</h1><p class="lede">Clarify the goal. Choose a fulfillment plan.<br class="desktop"> Recover across systems. Prove the outcome.</p></div><div class="intro-aside"><span class="tiny">THE OPERATING LOOP</span><p>Understand <span>→</span> Plan <span>→</span> Execute<br>Observe <span>→</span> Adapt <span>→</span> Verify</p><span class="tiny" id="interpreter">Connecting…</span><p class="tiny" id="connector"></p></div></section>
+<div class="workspace">
+<aside>
+<section class="card request"><div class="section-label"><span>01 / NEW REQUEST</span><span>↗</span></div><form id="goal-form"><label for="goal">What should get done?</label><textarea id="goal" rows="3" maxlength="500" required>Restock 12 keyboards within $900</textarea><label for="scenario">Test the unexpected</label><select id="scenario"><option value="timeout_after_commit">Purchase commits → response is lost</option><option value="supplier_outage">Supplier fails → find an alternative</option><option value="normal">Normal operation</option><option value="transient">Temporary outage → bounded retries</option><option value="crash_after_order">Interrupt after purchase → safe replay</option><option value="verification_mismatch">Wrong receipt → refuse completion</option></select><button class="primary" type="submit" id="launch">Start operator <span>→</span></button></form><p class="helper">Try “Restock mice” to clarify and use internal surplus. “Buy” always means a purchase. USD, fictional company.</p><p id="error" role="alert"></p></section>
+<section class="card"><div class="section-label"><span>02 / TASKS</span><span id="task-count">0</span></div><div id="task-list" aria-label="Tasks"><p class="muted">Your first request starts here.</p></div></section>
+<section class="card context"><div class="section-label"><span>COMPANY CONTEXT</span><span>◎</span></div><h3>Northstar Studio</h3><p class="muted">Fictional design company · USD</p><div id="inventory"></div><p id="policy" class="helper"></p></section>
+</aside>
+<section class="card activity"><div class="section-label"><span>03 / OPERATOR WORKSPACE</span><span class="live">● LIVE STATE</span></div>
+<div id="empty"><div class="empty-symbol">↗</div><h2>Ready to take ownership.</h2><p>Start a request to see the plan, decisions,<br>tool results, and verified evidence.</p><div class="empty-tags"><span>13 reusable tools</span><span>Durable execution</span><span>Approval bound to quote</span></div></div>
+<div id="task-detail" hidden><div class="task-heading"><div><p class="eyebrow" id="task-id"></p><h2 id="task-goal"></h2><p id="contract" class="helper"></p></div><span id="task-status" class="badge"></span></div><div class="progress" id="progress"></div><div id="clarification" class="clarification" hidden></div><div id="attention" class="attention" role="status" hidden></div><div id="approval" class="approval" hidden></div><div id="evidence" class="evidence" hidden></div><div class="trace-title"><h3>Decision & execution trace</h3><a id="export" class="text-link">Export evidence ↓</a></div><p class="helper">Each decision replans from persisted observations. Expand an event to inspect the data.</p><div id="events"></div></div>
+</section>
+</div>
+<footer><span>Relay / CentrAlign AI engineering submission</span><span>SQLite persistence · Symbolic planning · Local tools</span></footer>
+</main></body></html>
