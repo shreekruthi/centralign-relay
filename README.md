@@ -2,7 +2,7 @@
 
 **An outcome owner with alternative plans, human authority, cross-system recovery and evidence.**
 
-[Watch the demo video](https://github.com/shreekruthi/centralign-relay/blob/main/docs/demo.mp4) · [Source repository](https://github.com/shreekruthi/centralign-relay) · [Validation report](docs/TEST_REPORT.md)
+[Watch the demo video](https://shreekruthi.github.io/centralign-relay/) · [Source repository](https://github.com/shreekruthi/centralign-relay) · [Validation report](docs/TEST_REPORT.md)
 
 Built for the CentrAlign AI Founding Engineer take-home. Relay handles one useful company workflow: get additional equipment into ready-to-use inventory, within a stated budget and company rules. It can clarify a missing goal, fulfill from internal surplus, or purchase through a separate supplier HTTP API. It verifies the selected outcome before declaring completion.
 
@@ -66,7 +66,7 @@ python -m unittest discover -s tests -v
 
 The suite includes the local reference connector plus real HTTP integration tests against the separate supplier ledger. It covers actual response loss after commit, recovery in a new process, no duplicate checkout, unresolved uncertainty, changed quotes, approvals, alternate plans, surplus races, clarification, retrieved company history and read-back failures. See the exact [validation report](docs/TEST_REPORT.md), [test output](docs/test-output.txt) and [result JSON](docs/test-results.json).
 
-CI is configured for Python 3.11/3.14 on Windows, Ubuntu and macOS. The report distinguishes locally executed checks from configured but unexecuted remote CI.
+GitHub Actions passed all six Python 3.11/3.14 combinations on Windows, Ubuntu and macOS, including the full suite and three CLI demos. [Verified CI run](https://github.com/shreekruthi/centralign-relay/actions/runs/40355104127).
 
 ## Demo and reviewer materials
 
